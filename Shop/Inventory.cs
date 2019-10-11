@@ -22,6 +22,7 @@ namespace Shop
                 Console.WriteLine("2: Unequip weapon");
                 Console.WriteLine("3: Add gold");
                 Console.WriteLine("4: Subtract gold");
+                Console.WriteLine("5: Buy Potion");
                 choice = Console.ReadLine();
                 if (choice == "1")
                 {
@@ -44,6 +45,11 @@ namespace Shop
                     float subtractedGold = Convert.ToSingle(Console.ReadLine());
                     SubtractGold(subtractedGold);
                 }
+                else if (choice == "5")
+                {
+                    Console.WriteLine("Want an Icarus/Bulma/Eighter?");
+                    gold -= amount;
+                }
             }
         }
         public void EquipWeapon()
@@ -55,6 +61,7 @@ namespace Shop
                 Console.WriteLine("Sword");
                 Console.WriteLine("Hammer");
                 Console.WriteLine("Battleaxe");
+                Console.WriteLine("Unequip");
                 Console.WriteLine("Cancel\n");
 
                 choice = Console.ReadLine();
@@ -74,6 +81,10 @@ namespace Shop
                 {
                     damage = 40;
                 }
+                else if (choice == "Unequip")
+                {
+                    damage = 0;
+                }
 
                 Console.WriteLine("Equipped a " + choice + "!");
                 Console.WriteLine("Damage: " + damage);
@@ -90,20 +101,17 @@ namespace Shop
         {
             Console.WriteLine("Got " + amount + " gold!");
             gold += amount;
-            Console.WriteLine("Damage: " + damage);
         }
         public void SubtractGold(float amount)
         {
             Console.WriteLine("Lost " + amount + " gold!");
             gold -= amount;
-            Console.WriteLine("Damage: " + damage);
         }
 
         public void BuyPotion(float amount)
         {
-            Console.WriteLine("Want an overall boost potion?");
+            Console.WriteLine("Want an Icarus/Bulma/Eighter?");
             gold -= amount;
-
         }
     }
 }
